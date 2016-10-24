@@ -12,7 +12,10 @@ def main():
                 actual = line.split()[7]
                 predicted = line.split()[3]
                 cm[classes.index(actual)][classes.index(predicted)] += 1
-        print cm
+    i = 0
+    for c in cm:
+        print "Actual Class -",classes[i],"=", c
+        i += 1
 
 
 if __name__ == "__main__":
