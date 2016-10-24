@@ -1,5 +1,9 @@
+#usage: python confusion_matrix.py <test_filename> <out_filename>
+#e.g. python confusion_matrix.py yeast_test.arff yeast_30.txt
 from scipy.io import arff
-out_file, test_file = "yeast_30.txt","yeast_test.arff"
+import sys
+
+test_file, out_file = sys.argv[1], sys.argv[2]
 data, meta = arff.loadarff(test_file)
 classes = meta._attributes[meta.names()[-1]][1]            #Hack! //This line smells.
 cm = [[0 for i in range(0,len(classes))] for j in range(0, len(classes))]
